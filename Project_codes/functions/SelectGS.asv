@@ -1,0 +1,41 @@
+
+
+gain_freqScaling_term = @(f_datasheetG_T) 20*log10(f/f_datasheetG_T);
+
+% GROUND STATIONS
+GS1.lat  = 40+26/60+33/3600; % G/S latitude  [deg]
+GS1.lon  = 2; % G/S longitude [deg]
+GS1.h    = 402.2;   % G/S altitude  [m]
+GS1.D    = 13.0;    % Antenna diameter [m]
+GS1.G_T  = 33.0;    % Figure of Merit: G_rx/T_n (@fG_T) [dB/K]
+fG_T = 8.2;         % Carrier corresponding to reported G_T in datasheet [GHz]
+GS1.G_T = GS1.G_T + gain_freqScaling_term(fG_T); % Scaled G_rx/T_n [dB/K]
+GS1.name = 'Kiruna';
+
+GS2.lat  = -77.8391;
+GS2.lon  = 166.6671;
+GS2.h    = 206.4;
+GS2.D    = 10.0;
+GS2.G_T  = 32.0;
+fG_T = 8.1;
+GS2.G_T = GS2.G_T + gain_freqScaling_term(fG_T);
+GS2.name = 'McMurdo';
+
+GS3.lat  = -29.0457;
+GS3.lon  = 115.3487;
+GS3.h    = 250.0;
+GS3.D    = 13.0;
+GS3.G_T  = 37.7;
+fG_T = 8.25;
+GS3.G_T = GS3.G_T + gain_freqScaling_term(fG_T);
+GS3.name = 'Dongara';
+
+GS4.lat  = 32.5047;
+GS4.lon  = -106.6108;
+GS4.h    = 1485;
+GS4.D    = 18.3;
+GS4.G_T  = 46.0; % Already provided (and operating) @ Ka
+GS4.name = 'White Sands';
+
+
+GS_cell = {GS1, GS2, GS3, GS4};
