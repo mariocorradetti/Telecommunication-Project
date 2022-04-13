@@ -1,4 +1,5 @@
 The folder contains : 
+
 	- 1. Atmospheric Propagation : ● Main1_AttenuationComponents.m : used to evaluate map of atmospheric attenuations (rain, cloud/fog and gas)
 			               ● Main2_OverallAttenuation.m : used to evaluate the overall attenuation and the attenuation on the selected GS wrt elevation angle
 	
